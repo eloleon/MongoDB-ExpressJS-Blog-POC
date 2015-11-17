@@ -1,0 +1,10 @@
+{% extends 'partials/main.html' %}
+
+{% block content %}
+  <h5<Welcome {{username}}</h5>
+  <ul class="nav nav-pills nav-stacked">
+    <li><a href="/">Goto Blog Home</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <li><a href="/newpost">Create a New Post</a></li>
+  </ul>
+{% endblock %}

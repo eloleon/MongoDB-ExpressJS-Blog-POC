@@ -1,0 +1,31 @@
+{% extends 'partials/main.html' %}
+
+{% block content %}
+  {% for post in myposts %}
+  <div class="blog-post">
+  <h2 class="blog-post-title">
+    <a href="/post/{{post['permalink']}}">{{post['title']}}</a>
+  </h2>
+  <p class="blog-post-meta"><small>Posted {{post['date']}} <i>By {{post['author']}}</i></small></p>
+
+  {% autoescape false %}
+  {{post['body']}}
+  {% endautoescape %}
+
+  <p>Tags :</p>
+  {% for tag in post.tags %}
+    {% if loop.first %}
+      <a href="/tag/{{tag}}" class="label label-info">{{ tag }}</a>
+    {% else %}
+      <a href="/tag/{{tag}}" class="label label-info">{{ tag }}</a>
+    {% endif %}
+  {% endfor %}
+
+  <p>
+    <br />
+  <a class="btn btn-primary btn-sm" href="/post/{{post['permalink']}}">Comments <span class="badge">{{post['comments']|length}}</span/></a>
+  </p>
+  <hr>
+  </div>  <!-- end of blog-post -->
+  {% endfor %}
+{% endblock %}

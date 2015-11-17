@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MongoDB / ExpressJS blog POC</title>
+
+  <!-- Bootstrap -->
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/blog.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+        {% if username %}
+          <span class="simple-text">Welcome {{username}}</span>
+          <a class="blog-nav-item" href="/logout">Logout</a> | <a class="blog-nav-item" href="/newpost">New Post</a>
+        {% else %}
+          <span class="simple-text">You are not logged in!</span>
+          <a class="blog-nav-item" href="/login">Login</a> | <a class="blog-nav-item" href="/signup">Sign Up</a>
+        {% endif %}
+        </nav>
+      </div>
+    </div>
+    <div class="container">
+      <div class="blog-header">
+        <h1 class="blog-title">MongoDB + ExpressJS POC blog</h1>
+        <p class="lead blog-description">This is Proof of Concept blog using MongoDB and ExpressJS</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          {% block content %}{% endblock %}
+
+        </div> <!-- end of col-sm8 blog-main -->
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'partials/main.html' %}
+
+{% block content %}
+  <div class="col-sm-12">
+    <h2>Signup</h2>
+    <form method="post">
+      {% if username_error %}
+        <div class="alert alert-danger text-center">{{username_error}}</div>
+      {% endif %}
+      <div class="form-group required">
+        <label class="control-label" for="username">Username</label>
+        <input type="text" name="username" value="{{username}}" class="form-control" />
+      </div>
+
+      {% if password_error %}
+        <div class="alert alert-danger text-center">{{password_error}}</div>
+      {% endif %}
+      <div class="form-group required">
+        <label class="control-label" for="password">Password</label>
+        <input type="password" name="password" value="" class="form-control" />
+      </div>
+
+      {% if verify_error %}
+        <div class="alert alert-danger text-center">{{verify_error}}</div>
+      {% endif %}
+      <div class="form-group required">
+        <label class="control-label" for="password">Verify Password</label>
+        <input type="password" name="verify" value="" class="form-control" />
+      </div>
+
+      {% if email_error %}
+        <div class="alert alert-danger text-center">{{email_error}}</div>
+      {% endif %}
+      <div class="form-group">
+        <label for="username">Email</label>
+        <input type="text" name="email" value="{{email}}" class="form-control" />
+      </div>
+      
+      <input class="btn btn-primary btn-block" type="submit">
+    </form>
+  </div>
+{% endblock %}
